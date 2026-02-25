@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🚦 Traffic Management System</h1>
+    <p>Smart Signal Calculation</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="traffic.html">Traffic Management</a>
+</nav>
+
+<section class="management-section">
+
+    <h2>Enter Number of Vehicles</h2>
+
+    <input type="number" id="vehicleCount" placeholder="Enter vehicle count">
+    <button onclick="manageTraffic()">Manage Traffic</button>
+
+    <div class="result-box">
+        <h3 id="signalResult"></h3>
+        <h4 id="timeResult"></h4>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

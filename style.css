@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 600;
+}
+
+header p {
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+/* Navigation */
+nav {
+    background: #0f172a;
+    text-align: center;
+    padding: 12px;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* Home Section */
+.home-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 10%;
+    background: white;
+}
+
+.home-text {
+    width: 50%;
+}
+
+.home-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.home-text p {
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.primary-btn {
+    padding: 12px 25px;
+    background: #38bdf8;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #0ea5e9;
+}
+
+/* Image */
+.home-image {
+    width: 40%;
+}
+
+.home-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Traffic Rules */
+#rules {
+    padding: 60px 10%;
+    background: #f8fafc;
+    text-align: center;
+}
+
+#rules h2 {
+    margin-bottom: 40px;
+}
+
+.rules-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.rule-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+.management-section {
+    padding: 80px 10%;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.management-section h2 {
+    margin-bottom: 30px;
+}
+
+.management-section input {
+    padding: 12px;
+    width: 250px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.management-section button {
+    padding: 12px 20px;
+    background: #38bdf8;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.management-section button:hover {
+    background: #0ea5e9;
+}
+
+.result-box {
+    margin-top: 40px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
