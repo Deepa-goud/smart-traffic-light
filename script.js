@@ -1,29 +1,70 @@
-function manageTraffic() {
+function runTrafficSystem() {
 
-    let vehicles = document.getElementById("vehicleCount").value;
-    vehicles = parseInt(vehicles);
+    // Step 1: Get input values
+    let traffic = {
+        North: parseInt(document.getElementById("north").value) || 0,
+        South: parseInt(document.getElementById("south").value) || 0,
+        East:  parseInt(document.getElementById("east").value) || 0,
+        West:  parseInt(document.getElementById("west").value) || 0
+    };
 
-    let greenTime;
-    let signalMessage;
+    // Step 2: Calculate green times
+    let baseTime = 10;
+    let factor = 2;
 
-    if (vehicles > 50) {
-        greenTime = 90;
-        signalMessage = "Heavy Traffic Detected 🚗🚗🚗";
-    } 
-    else if (vehicles > 30) {
-        greenTime = 60;
-        signalMessage = "Moderate Traffic 🚦";
-    } 
-    else if (vehicles > 10) {
-        greenTime = 40;
-        signalMessage = "Normal Traffic ✅";
-    } 
-    else {
-        greenTime = 20;
-        signalMessage = "Low Traffic 🟢";
+    let greenTimes = {};
+
+    for (let dir in traffic) {
+        greenTimes[dir] = baseTime + (traffic[dir] * factor);
     }
 
-    document.getElementById("signalResult").innerHTML = signalMessage;
-    document.getElementById("timeResult").innerHTML =
-        "Green Signal Time: " + greenTime + " seconds";
+    // Step 3: Sort directions (highest traffic first)
+    let order = Object.keys(greenTimes).sort((a, b) => greenTimes[b] - greenTimes[a]);
+
+    // Step 4: Run signals
+    runSignals(order, greenTimes);
+}
+
+
+// 🚦 SIGNAL CONTROL FUNCTION
+function runSignals(order, times) {
+
+    let i = 0;
+
+    function nextSignal() {
+
+        if (i >= order.length) {
+            document.getElementById("result").innerText = "Cycle Completed ✅";
+            return;
+        }
+
+        let dir = order[i];
+
+        // Show current active signal
+        document.getElementById("result").innerText =
+            `${dir} GREEN for ${times[dir]} seconds`;
+
+        // Reset all lights
+        document.querySelectorAll(".light").forEach(light => {
+            light.classList.remove("active");
+        });
+
+        // Turn ON green for current direction
+        document.getElementById(dir.toLowerCase() + "-green").classList.add("active");
+
+        // Turn ON red for others
+        order.forEach(d => {
+            if (d !== dir) {
+                document.getElementById(d.toLowerCase() + "-red").classList.add("active");
+            }
+        });
+
+        // Move to next after delay
+        setTimeout(() => {
+            i++;
+            nextSignal();
+        }, 2000); // demo speed (you can increase)
+    }
+
+    nextSignal();
 }

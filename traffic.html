@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Traffic Management</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .management-section {
+            text-align: center;
+            padding: 40px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #0ea5e9;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* 🚦 Traffic Signal UI */
+        .signals-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .signal-box {
+            text-align: center;
+        }
+
+        .light {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 5px auto;
+            background: gray;
+        }
+
+        .red.active {
+            background: red;
+        }
+
+        .green.active {
+            background: green;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
@@ -22,12 +83,43 @@
 
     <h2>Enter Number of Vehicles</h2>
 
-    <input type="number" id="vehicleCount" placeholder="Enter vehicle count">
-    <button onclick="manageTraffic()">Manage Traffic</button>
+    <input type="number" id="north" placeholder="North vehicles">
+    <input type="number" id="south" placeholder="South vehicles">
+    <input type="number" id="east" placeholder="East vehicles">
+    <input type="number" id="west" placeholder="West vehicles">
 
-    <div class="result-box">
-        <h3 id="signalResult"></h3>
-        <h4 id="timeResult"></h4>
+    <br><br>
+    <button onclick="runTrafficSystem()">Start</button>
+
+    <div id="result"></div>
+
+    <!-- 🚦 SIGNAL DISPLAY -->
+    <div class="signals-container">
+
+        <div class="signal-box">
+            <h3>North</h3>
+            <div class="light red" id="north-red"></div>
+            <div class="light green" id="north-green"></div>
+        </div>
+
+        <div class="signal-box">
+            <h3>South</h3>
+            <div class="light red" id="south-red"></div>
+            <div class="light green" id="south-green"></div>
+        </div>
+
+        <div class="signal-box">
+            <h3>East</h3>
+            <div class="light red" id="east-red"></div>
+            <div class="light green" id="east-green"></div>
+        </div>
+
+        <div class="signal-box">
+            <h3>West</h3>
+            <div class="light red" id="west-red"></div>
+            <div class="light green" id="west-green"></div>
+        </div>
+
     </div>
 
 </section>
